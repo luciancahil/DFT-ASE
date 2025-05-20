@@ -1,0 +1,13 @@
+Do github.
+
+Move pseudos
+
+Turn a real adsorbate into adaptable.
+
+This is done by extracting the x and y coords, and making the thing 2.5 * the sum.
+
+To get the actual coordinates, might be worth subtracting the minimum from the slab from everything.
+
+That seems like all I need?
+
+Move pseudos

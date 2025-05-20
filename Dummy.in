@@ -1,0 +1,19 @@
+ &control
+    calculation = 'relax',
+    prefix = 'h2o',
+    pseudo_dir='../psudos'
+ /
+ &system
+    ibrav =  1, 
+    celldm(1) = 15.00, 
+    nat =  2, 
+    ntyp = 2,
+    ecutwfc = 60
+ /
+ &electrons
+    mixing_beta = 0.7
+    conv_thr=1.d-8
+ /
+ &ions
+ /
+ATOMIC_SPECIES
