@@ -13,9 +13,9 @@ def write_boiler(output, a, b, c, natoms, ntype):
     output.write("/\n")
     output.write("\n")
     output.write("&SYSTEM\n")
-    output.write("    a           =  %.5E\n" % Decimal(a))
-    output.write("    b           =  %.5E\n" % Decimal(b))
-    output.write("    c           =  %.5E\n" % Decimal(c))
+    output.write("    a           =  %.5e\n" % Decimal(a))
+    output.write("    b           =  %.5e\n" % Decimal(b))
+    output.write("    c           =  %.5e\n" % Decimal(c))
     output.write("    degauss     =  1.00000e-02\n")
     output.write("    ecutrho     =  5.00000e+02\n")
     output.write("    ecutwfc     =  5.00000e+01\n")
@@ -64,6 +64,7 @@ ntype = len(set(atoms.get_atomic_numbers()))
 
 write_boiler(output, a, b, c, natoms, ntype)
 
+breakpoint()
 
 #TODO: Allow selection of pseudo potentials
 pseudopotentials = {'Na': 'Na.pbe-spn-kjpaw_psl.1.0.0.UPF', 'Cl': 'Cl.pbe-n-kjpaw_psl.1.0.0.UPF'}
