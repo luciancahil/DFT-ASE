@@ -1,73 +1,32 @@
-&CONTROL
-    calculation = "scf"
-    max_seconds =  8.64000e+04
-    pseudo_dir  = "."
-/
 
-&SYSTEM
-    a           =  8.16800e+00
-    b           =  2.04200e+01
-    c           =  2.04200e+01
-    degauss     =  1.00000e-02
-    ecutrho     =  5.00000e+02
-    ecutwfc     =  5.00000e+01
-    ibrav       = 6
-    nat         = 35
-    ntyp        = 3
-    occupations = "fixed"
-    smearing    = "gaussian"
-/
-
-&ELECTRONS
-    conv_thr         =  1.00000e-06
-    electron_maxstep = 200
-    mixing_beta      =  7.00000e-01
-    startingpot      = "atomic"
-    startingwfc      = "atomic+random"
-/
-
-K_POINTS {gamma}
-
-ATOMIC_SPECIES
-Li      6.94100  Li.pbe-sl-kjpaw_psl.1.0.0.UPF
-H       1.00794  H.pbe-kjpaw_psl.1.0.0.UPF
-O      15.99940  O.pbe-nl-kjpaw_psl.1.0.0.UPF
-
-ATOMIC_POSITIONS {angstrom}
-Li      0.000000   0.000000   0.000000
-Li      0.000000   4.084000   0.000000
-Li      4.084000   0.000000   0.000000
-Li      4.084000   4.084000   0.000000
-Li      0.000000   2.042000   2.042000
-Li      0.000000   6.126000   2.042000
-Li      4.084000   2.042000   2.042000
-Li      4.084000   6.126000   2.042000
-Li      2.042000   0.000000   2.042000
-Li      2.042000   4.084000   2.042000
-Li      6.126000   0.000000   2.042000
-Li      6.126000   4.084000   2.042000
-Li      2.042000   2.042000   0.000000
-Li      2.042000   6.126000   0.000000
-Li      6.126000   2.042000   0.000000
-Li      6.126000   6.126000   0.000000
-H       2.042000   2.042000   2.042000
-H       2.042000   6.126000   2.042000
-H       6.126000   2.042000   2.042000
-H       6.126000   6.126000   2.042000
-H       2.042000   0.000000   0.000000
-H       2.042000   4.084000   0.000000
-H       6.126000   0.000000   0.000000
-H       6.126000   4.084000   0.000000
-H       0.000000   2.042000   0.000000
-H       0.000000   6.126000   0.000000
-H       4.084000   2.042000   0.000000
-H       4.084000   6.126000   0.000000
-H       0.000000   0.000000   2.042000
-H       0.000000   4.084000   2.042000
-H       4.084000   0.000000   2.042000
-H       4.084000   4.084000   2.042000
-H       3.069349   4.023112   4.089802
-H       1.981112   5.111349   4.089802
-O       2.104795   4.146795   4.193271
-
-
+output.write("&CONTROL")
+output.write("    calculation = \"scf\"")
+output.write("    max_seconds =  8.64000e+04")
+output.write("    pseudo_dir  = \".\"")
+output.write("/")
+output.write("")
+output.write("&SYSTEM")
+output.write("    a           =  8.16800e+00")
+output.write("    b           =  2.04200e+01")
+output.write("    c           =  2.04200e+01")
+output.write("    degauss     =  1.00000e-02")
+output.write("    ecutrho     =  5.00000e+02")
+output.write("    ecutwfc     =  5.00000e+01")
+output.write("    ibrav       = 6")
+output.write("    nat         = 35")
+output.write("    ntyp        = 3")
+output.write("    occupations = \"fixed\"")
+output.write("    smearing    = \"gaussian\"")
+output.write("/")
+output.write("")
+output.write("&ELECTRONS")
+output.write("    conv_thr         =  1.00000e-06")
+output.write("    electron_maxstep = 200")
+output.write("    mixing_beta      =  7.00000e-01")
+output.write("    startingpot      = \"atomic\"")
+output.write("    startingwfc      = \"atomic+random\"")
+output.write("/")
+output.write("")
+output.write("K_POINTS {gamma}")
+output.write("")
+output.write("ATOMIC_SPECIES")

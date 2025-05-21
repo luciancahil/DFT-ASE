@@ -1,10 +1,8 @@
-Do github.
+Extract X and Y, and Z code.
 
-Move pseudos
+Allow time
 
-Turn a real adsorbate into adaptable.
-
-This is done by extracting the x and y coords, and making the thing 2.5 * the sum.
+Get Pseudos
 
 To get the actual coordinates, might be worth subtracting the minimum from the slab from everything.
 

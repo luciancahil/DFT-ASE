@@ -1,0 +1,31 @@
+&CONTROL
+    calculation = "relax"
+    max_seconds =  8.64000e+04
+    pseudo_dir  = "."
+/
+
+&SYSTEM
+    a           =  3.99937E+00
+    b           =  3.99937E+00
+    c           =  1.99968E+01
+    degauss     =  1.00000e-02
+    ecutrho     =  5.00000e+02
+    ecutwfc     =  5.00000e+01
+    ibrav       = 6
+    nat         = 5
+    ntyp        = 3
+    occupations = "fixed"
+    smearing    = "gaussian"
+/
+
+&ELECTRONS
+    conv_thr         =  1.00000e-06
+    electron_maxstep = 200
+    mixing_beta      =  7.00000e-01
+    startingpot      = "atomic"
+    startingwfc      = "atomic+random"
+/
+
+K_POINTS {gamma}
+
+ATOMIC_SPECIES

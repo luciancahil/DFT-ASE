@@ -1,9 +1,45 @@
 
 from ase.build import bulk, surface
 from ase.io import read
+from decimal import Decimal
+
+'%.2E' % Decimal('40800000000.00000000000000')
+
+def write_boiler(output, a, b, c, natoms, ntype):
+    output.write("&CONTROL\n")
+    output.write("    calculation = \"relax\"\n")
+    output.write("    max_seconds =  8.64000e+04\n")
+    output.write("    pseudo_dir  = \".\"\n")
+    output.write("/\n")
+    output.write("\n")
+    output.write("&SYSTEM\n")
+    output.write("    a           =  %.5E\n" % Decimal(a))
+    output.write("    b           =  %.5E\n" % Decimal(b))
+    output.write("    c           =  %.5E\n" % Decimal(c))
+    output.write("    degauss     =  1.00000e-02\n")
+    output.write("    ecutrho     =  5.00000e+02\n")
+    output.write("    ecutwfc     =  5.00000e+01\n")
+    output.write("    ibrav       = 6\n")
+    output.write("    nat         = {}\n".format(natoms))
+    output.write("    ntyp        = {}\n".format(ntype))
+    output.write("    occupations = \"fixed\"\n")
+    output.write("    smearing    = \"gaussian\"\n")
+    output.write("/\n")
+    output.write("\n")
+    output.write("&ELECTRONS\n")
+    output.write("    conv_thr         =  1.00000e-06\n")
+    output.write("    electron_maxstep = 200\n")
+    output.write("    mixing_beta      =  7.00000e-01\n")
+    output.write("    startingpot      = \"atomic\"\n")
+    output.write("    startingwfc      = \"atomic+random\"\n")
+    output.write("/\n")
+    output.write("\n")
+    output.write("K_POINTS {gamma}\n")
+    output.write("\n")
+    output.write("ATOMIC_SPECIES\n")
 
 
-name = "NaCl"
+name = "TaAgO3"
 
 rocksalt = bulk('NaCl', crystalstructure='rocksalt', a=6.0)
 
@@ -16,7 +52,18 @@ layers = 1
 vacuum = 100.0  
 slab = surface(atoms, miller_indices, layers, vacuum)
 
-breakpoint()
+
+# coordinates
+
+a = slab.cell[0][0].item()
+b = slab.cell[1][1].item()
+c = (a + b) * 2.5
+output = open("{}.in".format(name), mode='w')
+natoms = len(slab)
+ntype = len(set(atoms.get_atomic_numbers()))
+
+write_boiler(output, a, b, c, natoms, ntype)
+
 
 #TODO: Allow selection of pseudo potentials
 pseudopotentials = {'Na': 'Na.pbe-spn-kjpaw_psl.1.0.0.UPF', 'Cl': 'Cl.pbe-n-kjpaw_psl.1.0.0.UPF'}
@@ -28,10 +75,8 @@ profile = {'command':'/home/roy/anaconda3/envs/qe/bin/pw.x', 'pseudo_dir':'./psu
 #TODO: Change the total number of atoms
 boilerplate = open("Dummy.in", mode='r')
 
-output = open("{}.in".format(name), mode='w')
 
-for line in boilerplate:
-    output.write(line)
+
 
 
 for atom in rocksalt:
